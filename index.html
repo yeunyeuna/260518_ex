@@ -125,34 +125,192 @@
         font-display: swap;
       }
 
-      /* 테그 전체에 적용 */
-      /* body 또는  html에다가 폰트를 저장하면 '상속' */
-      body {
-        font-family: "Pretendard";
-      }
-
-      /* 모든 태그를 지정하는 *로 지정 */
-
+      /* 기본 스타일 및 초기화 */
       * {
-        font-family: "Pretendard";
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Pretendard", sans-serif;
       }
 
-      h1 {
-        font-family: "SongamLeeHyeongSik";
+      body {
+        background-color: #FEFDDF;
+        color: #333;
+        line-height: 1.6;
+        word-break: keep-all;
       }
 
-      span {
-        font-family: "SongamLeeHyeongSik";
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 60px 20px;
+      }
+
+      header {
+        margin-bottom: 60px;
+        border-bottom: 3px solid #E87F24;
+        padding-bottom: 20px;
+      }
+
+      header h1 {
+        font-family: "SongamLeeHyeongSik", serif;
+        font-size: 3rem;
+        color: #E87F24;
+        margin-bottom: 8px;
+        letter-spacing: -1px;
+      }
+
+      .subtitle {
+        font-family: "EarlySummerFloweringTreeV20JangHyeri", serif;
+        font-size: 1.4rem;
+        color: #73A5CA;
+      }
+
+      section {
+        margin-bottom: 60px;
+      }
+
+      h2 {
+        font-family: "SongamLeeHyeongSik", serif;
+        font-size: 2rem;
+        color: #73A5CA;
+        margin-bottom: 24px;
+        position: relative;
+        display: inline-block;
+      }
+
+      /* 텍스트 강조 효과를 위한 밑줄 디자인 */
+      h2::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 2px;
+        width: 100%;
+        height: 12px;
+        background-color: #FFC81E;
+        z-index: -1;
+        opacity: 0.8;
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #444;
+      }
+
+      .highlight {
+        color: #E87F24;
+        font-weight: 600;
+      }
+
+      /* Skills */
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .skill-tags span {
+        background-color: #73A5CA;
+        color: #FEFDDF;
+        padding: 8px 18px;
+        border-radius: 30px;
+        font-weight: 500;
+        font-size: 1rem;
+        box-shadow: 0 2px 4px rgba(115, 165, 202, 0.3);
+      }
+
+      /* Projects */
+      .project-card {
+        background-color: #ffffff;
+        padding: 28px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        border-left: 6px solid #E87F24;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      }
+
+      .project-card h3 {
+        font-size: 1.3rem;
+        color: #222;
+        margin-bottom: 12px;
+      }
+
+      .project-card p {
+        color: #666;
+        font-size: 1.05rem;
+      }
+
+      footer {
+        margin-top: 80px;
+        padding-top: 30px;
+        border-top: 1px dashed #ccc;
+        text-align: center;
+      }
+
+      footer p {
+        color: #888;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
       }
     </style>
   </head>
   <body>
-    <!-- 폰트의 경우에 3가지 정도까지 괜찮음 -->
-    <!-- 제목폰트 : 굴고 진지한 -->
-    <h1>저는 AA입니다</h1>
-    <!--본문 / 내용 폰트 : 알아보기 쉽고 가벼운 -->
-    <p>희망적이고 의미있는 멘트를 해봅시다</p>
-    <!-- 강조/악센트 폰트 : 약간 다른 느낌애 -->
-    <p>여기를<span>강조</span>하자</p>
+    <div class="container">
+      <header>
+        <h1>Developer AA</h1>
+        <p class="subtitle">2년차 백엔드 개발자</p>
+      </header>
+
+      <section class="about">
+        <h2>About Me</h2>
+        <p>
+          안녕하세요. <span class="highlight">탄탄한 로직과 안정적인 아키텍처</span>에 관심이 많은 백엔드 개발자 AA입니다.<br />
+          새로운 기술을 탐구하고, 문제의 근본적인 원인을 파악하여 구조적으로 해결하는 과정을 즐깁니다.<br />
+          동료들과의 소통을 통해 함께 성장하는 개발 문화를 지향합니다.
+        </p>
+      </section>
+
+      <section class="skills">
+        <h2>Skills</h2>
+        <div class="skill-tags">
+          <span>Java</span>
+          <span>Spring Boot</span>
+          <span>JPA / Hibernate</span>
+          <span>MySQL</span>
+          <span>Redis</span>
+          <span>AWS</span>
+          <span>Docker</span>
+        </div>
+      </section>
+
+      <section class="projects">
+        <h2>Experience & Projects</h2>
+        <div class="project-card">
+          <h3>대용량 트래픽 분산 처리 API 서버 고도화</h3>
+          <p>
+            기존 모놀리식 아키텍처에서 발생하는 병목 현상을 해결하기 위해 마이크로서비스(MSA) 관점의 아키텍처 개선을 수행했습니다.
+            Redis 캐싱을 도입하여 조회 API의 응답 속도를 기존 대비 약 30% 향상시켰습니다.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>사내 운영 자동화 백오피스 개발</h3>
+          <p>
+            수기로 진행되던 정산 및 데이터 추출 업무를 자동화하는 사내 시스템을 구축하였습니다.
+            복잡한 비즈니스 로직을 모듈화하여 유지보수성을 높이고 팀의 업무 효율을 개선했습니다.
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        <p>Email : aa.developer@example.com</p>
+        <p>GitHub : github.com/aa-developer</p>
+      </footer>
+    </div>
   </body>
 </html>
